@@ -25,17 +25,26 @@
    </developers>
    <issueManagement>
       <system>GitHub Issues</system>
-      <url>https://github.com/ukwa/swindex/issues</url>
+      <url>https://github.com/ukwa/jruby-whois/issues</url>
    </issueManagement>
    <scm>
-      <connection>scm:git:git@github.com:ukwa/swindex.git</connection>
-      <developerConnection>scm:git:git@github.com:ukwa/swindex.git</developerConnection>
-      <url>git@github.com:ukwa/swindex.git</url>
+      <connection>scm:git:git@github.com:ukwa/jruby-whois.git</connection>
+      <developerConnection>scm:git:git@github.com:ukwa/jruby-whois.git</developerConnection>
+      <url>git@github.com:ukwa/jruby-whois.git</url>
    </scm>
    <properties>
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
    </properties>
    <build>
+    <resources>
+        <resource>
+            <directory>src/main/resources</directory>
+        </resource>
+        <!--  Not necessary for Maven to work, but makes Eclipse happy as otherwise it does not know how to support the gem plugin. -->
+        <resource>
+            <directory>target/rubygems</directory>
+        </resource>
+    </resources>
       <plugins>
          <plugin>
             <groupId>org.apache.maven.plugins</groupId>
@@ -46,42 +55,49 @@
                <target>1.6</target>
             </configuration>
          </plugin>
-<plugin>
-      <groupId>de.saumya.mojo</groupId>
-      <artifactId>gem-maven-plugin</artifactId>
-      <version>1.0.0-rc4</version>
-      <configuration>
-                    <includeRubygemsInResources>true</includeRubygemsInResources>
-                </configuration>
-      <executions>
-        <execution>
-          <goals>
-            <goal>initialize</goal>
-          </goals>
-        </execution>
-      </executions>
-    </plugin>
-          </plugins>
+         <plugin>
+            <groupId>de.saumya.mojo</groupId>
+            <artifactId>gem-maven-plugin</artifactId>
+            <version>1.0.0-rc4</version>
+            <configuration>
+               <includeRubygemsInResources>true</includeRubygemsInResources>
+            </configuration>
+            <executions>
+               <execution>
+                  <goals>
+                     <goal>initialize</goal>
+                  </goals>
+               </execution>
+            </executions>
+         </plugin>
+      </plugins>
    </build>
    <dependencies>
-<dependency>
-      <groupId>org.jruby</groupId>
-      <artifactId>jruby-complete</artifactId>
-      <version>1.7.9</version>
-    </dependency>      
-<dependency>
-  <groupId>rubygems</groupId>
-  <artifactId>whois</artifactId>
-  <version>3.4.2</version>
-  <type>gem</type>
-</dependency>      
+      <dependency>
+         <groupId>org.jruby</groupId>
+         <artifactId>jruby-complete</artifactId>
+         <version>1.7.9</version>
+      </dependency>
+      <dependency>
+         <groupId>rubygems</groupId>
+         <artifactId>whois</artifactId>
+         <version>3.4.2</version>
+         <type>gem</type>
+      </dependency>
+      <dependency>
+         <groupId>junit</groupId>
+         <artifactId>junit</artifactId>
+         <version>4.8.2</version>
+         <scope>test</scope>
+      </dependency>
+
    </dependencies>
-   
-<repositories>
-  <repository>
-    <id>rubygems-release</id>
-    <url>http://rubygems-proxy.torquebox.org/releases</url>
-  </repository>
-</repositories>
+
+   <repositories>
+      <repository>
+         <id>rubygems-release</id>
+         <url>http://rubygems-proxy.torquebox.org/releases</url>
+      </repository>
+   </repositories>
 
 </project>

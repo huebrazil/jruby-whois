@@ -11,24 +11,20 @@ import org.jruby.embed.ScriptingContainer;
  */
 public class JRubyWhois {
 
+	ScriptingContainer container = new ScriptingContainer();
+	
+	public JRubyWhois() {
+	}
+    
 	/**
-	 * @param args
+	 * 
+	 * @param domain
+	 * @return
 	 */
-	public static void main(String[] args) {
-		ScriptingContainer container = new ScriptingContainer();
-        container.runScriptlet("require 'rubygems'; require 'Whois';");
-
-        container.runScriptlet("puts \"TEST\n\"");
-        
-        container.runScriptlet("w = Whois::Client.new; w.lookup(\"google.com\").registered?");
-        
-        container.put("domain", "bbc.co.uk");
-        String country = (String)container.runScriptlet("Whois.lookup(domain).parser.registrant_contacts[0].country");
-        System.out.println("Country "+country);
-
-        container.put("domain", "bbc.co.uk");
-        String country_code = (String)container.runScriptlet("Whois.lookup(domain).parser.registrant_contacts[0].country_code");
-        System.out.println("Country Code "+country_code);
+	public WhoisResult lookup(String domain) {
+		
+        container.put("domain", domain);
+        return (WhoisResult) container.runScriptlet(JRubyWhois.class.getResourceAsStream("jruby-whois.rb"), "jruby-whois.rb");
 
 	}
 
