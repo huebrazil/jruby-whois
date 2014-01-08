@@ -27,14 +27,14 @@ public class JRubyWhoisTest {
 	@Test
 	public void testLookup() {
 		WhoisResult r = w.lookup("bbc.co.uk");
-		assertEquals(true, r.isUK());
+		assertEquals(true, r.isUKRegistrant());
 		
 		r = w.lookup("marksandspencer.com");
-		assertEquals(true, r.isUK());
+		assertEquals(true, r.isUKRegistrant());
 		
 		
 		r = w.lookup("goolge.com");
-		assertEquals(false, r.isUK());
+		assertEquals(false, r.isUKRegistrant());
 		System.out.println("SAMPLE:"+r.getRecord().substring(0, 300).replace("\n\n", "\n")+"...");
 		
 	}

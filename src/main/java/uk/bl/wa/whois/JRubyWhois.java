@@ -18,6 +18,10 @@ public class JRubyWhois {
     
 	/**
 	 * 
+	 * Uses the Ruby Whois gem to perform a whois lookup.
+	 * 
+	 * Also checks if the registrant appears to be in the UK.
+	 * 
 	 * @param domain
 	 * @return
 	 */

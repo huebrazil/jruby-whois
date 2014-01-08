@@ -21,7 +21,7 @@ public class WhoisResult {
 	/**
 	 * @return the isUK
 	 */
-	public boolean isUK() {
+	public boolean isUKRegistrant() {
 		return isUK;
 	}
 
