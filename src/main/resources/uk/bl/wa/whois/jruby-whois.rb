@@ -1,5 +1,5 @@
 require 'rubygems'
-require 'Whois'
+require 'whois'
 require 'java'
 import 'uk.bl.wa.whois.WhoisResult'
 

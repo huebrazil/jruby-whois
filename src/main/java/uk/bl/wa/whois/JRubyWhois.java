@@ -1,11 +1,4 @@
-/**
- * 
- */
 package uk.bl.wa.whois;
-
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.util.ArrayList;
 
 import org.jruby.embed.ScriptingContainer;
 

@@ -33,7 +33,7 @@ public class JRubyWhoisTest {
 		assertEquals(true, r.isUKRegistrant());
 		
 		
-		r = w.lookup("goolge.com");
+		r = w.lookup("google.fr");
 		assertEquals(false, r.isUKRegistrant());
 		System.out.println("SAMPLE:"+r.getRecord().substring(0, 300).replace("\n\n", "\n")+"...");
 		
