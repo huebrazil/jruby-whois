@@ -5,32 +5,30 @@ import org.jruby.embed.ScriptingContainer;
 
 import uk.bl.wa.whois.record.WhoisResult;
 
-/**
- * @author Andrew Jackson <Andrew.Jackson@bl.uk>
- * 
- */
 public class JRubyWhois {
 
     ScriptingContainer container = new ScriptingContainer(
-            LocalContextScope.SINGLETON);
+            LocalContextScope.CONCURRENT);
 
     /**
      * 
      * Uses the Ruby Whois gem to perform a whois lookup.
      * 
-     * Also checks if the registrant appears to be in the UK.
-     * 
-     * @param domain
+     * @param domain domain name to lookup
      * @return
      */
     public WhoisResult lookup(String domain) {
-
         return lookup(domain, 30);
-
     }
 
+    /**
+     * Uses the Ruby Whois gem to perform a whois lookup
+     * 
+     * @param domain domain name to lookup
+     * @param timeout timeout in seconds
+     * @return
+     */
     public WhoisResult lookup(String domain, int timeout) {
-
         container.put("domain", domain);
         container.put("timeout_param", timeout);
         return (WhoisResult) container.runScriptlet(
@@ -39,6 +37,12 @@ public class JRubyWhois {
 
     }
 
+    /**
+     * Check if Ruby Whois gem has a parser for a specific registrar
+     * 
+     * @param whoisHost whois server to check
+     * @return 
+     */
     public boolean hasParserForWhoisHost(String whoisHost) {
         container.put("host", whoisHost);
         return (boolean) container.runScriptlet(
