@@ -72,9 +72,6 @@ Array(r.status).each do |s|
   status << s.to_s
 end
 
-puts r.contacts.count
-puts r.contacts
-
 WhoisResult.new(r.disclaimer, r.domain, r.domain_id, status, r.registered?,
 r.available?, r.created_on, r.updated_on, r.expires_on,
 java_registrar, convertContactList(r.registrant_contacts),
