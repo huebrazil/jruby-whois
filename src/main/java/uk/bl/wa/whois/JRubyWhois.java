@@ -39,7 +39,7 @@ public class JRubyWhois {
 
     }
 
-    public boolean hasParserFor(String whoisHost) {
+    public boolean hasParserForWhoisHost(String whoisHost) {
         container.put("host", whoisHost);
         return (boolean) container.runScriptlet(
                 JRubyWhois.class.getResourceAsStream("jruby-has-parser.rb"),

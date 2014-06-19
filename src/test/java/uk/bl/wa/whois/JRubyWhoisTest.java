@@ -69,12 +69,12 @@ public class JRubyWhoisTest {
     
     @Test
     public void testHasNoParser() {
-        assertFalse(w.hasParserFor("whois.corehub.net"));
+        assertFalse(w.hasParserForWhoisHost("whois.corehub.net"));
     }
     
     @Test
     public void testHasParser() {
-        assertTrue(w.hasParserFor("whois.verisign-grs.com"));
+        assertTrue(w.hasParserForWhoisHost("whois.verisign-grs.com"));
     }
 
 }
