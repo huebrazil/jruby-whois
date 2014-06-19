@@ -14,6 +14,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import uk.bl.wa.whois.record.WhoisContact;
+import uk.bl.wa.whois.record.WhoisPart;
 import uk.bl.wa.whois.record.WhoisResult;
 
 /**
@@ -32,25 +33,48 @@ public class JRubyWhoisTest {
         w = new JRubyWhois();
     }
 
-    @Test
+//    @Test
     public void testMassiveLookup() throws IOException {
         InputStream inputStream = getClass()
                 .getResourceAsStream("/domainNames");
         BufferedReader reader = new BufferedReader(new InputStreamReader(
                 inputStream));
-        String domain;
-        w.lookup("salomonshoes.com.au");
-        while ((domain = reader.readLine()) != null) {
+        String domain = "salomon.com";
+//        while ((domain = reader.readLine()) != null) {
             try {
                 WhoisResult r = w.lookup(domain, 5);
+                boolean printPart = true;
+                System.out.println(r.getRegistrantContacts().size());
+                System.out.println(r.getAdminContacts().size());
+                System.out.println(r.getTechnicalContacts().size());
                 for (WhoisContact contact : r.getRegistrantContacts()) {
-                    System.out.println(contact.getEmail() + " "
-                            + contact.getOrganization());
+                    if (contact.getEmail() == null) {
+                        System.out.println(contact.getEmail());
+                    } else {
+                        printPart = false;
+                        System.out.println(contact.getEmail());
+                    }
+                }
+                if (printPart) {
+                    for (WhoisPart part : r.getParts()) {
+                        System.err.println(part.getHost());
+                        System.err.println(part.getBody());
+                    }
                 }
             } catch (Exception e) {
                 System.err.println(domain);
             }
-        }
+//        }
+    }
+    
+    @Test
+    public void testHasNoParser() {
+        assertFalse(w.hasParserFor("whois.corehub.net"));
+    }
+    
+    @Test
+    public void testHasParser() {
+        assertTrue(w.hasParserFor("whois.verisign-grs.com"));
     }
 
 }
