@@ -28,7 +28,7 @@ public class JRubyWhoisTest {
     @Test
     public void testMassiveLookup() throws IOException, ParseException {
         String domain = "google.fr";
-        WhoisResult r = w.lookup(domain, 5);
+        WhoisResult r = w.lookup(domain, 60);
         assertEquals(new SimpleDateFormat("yyyy-MM-dd").parse("2000-07-27"),
                 r.getCreatedOn());
     }
