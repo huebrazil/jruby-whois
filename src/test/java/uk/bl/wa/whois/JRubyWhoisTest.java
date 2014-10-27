@@ -22,7 +22,7 @@ public class JRubyWhoisTest {
 
     @Before
     public void setUp() throws Exception {
-        w = new JRubyWhois();
+        w = new JRubyWhois(true);
     }
 
     @Test

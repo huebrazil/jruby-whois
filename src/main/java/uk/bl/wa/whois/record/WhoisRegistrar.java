@@ -9,8 +9,7 @@ public class WhoisRegistrar {
 
     private final String url;
 
-    public WhoisRegistrar(String id, String name, String organization,
-            String url) {
+    public WhoisRegistrar(String id, String name, String organization, String url) {
         super();
         this.id = id;
         this.name = name;

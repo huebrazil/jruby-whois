@@ -1,0 +1,79 @@
+Domain Name: KEEPALEGENTCREIGHTONHEALTHCREIGHTONUNIVERSITYMEDICALCENTERBLUE.COM
+Registry Domain ID: 1850099409_DOMAIN_COM-VRSN
+Registrar WHOIS Server: whois.godaddy.com
+Registrar URL: http://www.godaddy.com
+Update Date: 2014-03-11 16:21:01
+Creation Date: 2014-03-11 16:21:01
+Registrar Registration Expiration Date: 2015-03-11 16:21:01
+Registrar: GoDaddy.com, LLC
+Registrar IANA ID: 146
+Registrar Abuse Contact Email: abuse@godaddy.com
+Registrar Abuse Contact Phone: +1.480-624-2505
+Domain Status: clientTransferProhibited
+Domain Status: clientUpdateProhibited
+Domain Status: clientRenewProhibited
+Domain Status: clientDeleteProhibited
+Registry Registrant ID: 
+Registrant Name: Allan Hull
+Registrant Organization: Blue Cross and Blue Shield of Nebraska
+Registrant Street: 1919 Aksarben Drive
+Registrant City: Omaha
+Registrant State/Province: Nebraska
+Registrant Postal Code: 68180
+Registrant Country: United States
+Registrant Phone: +1.4029826787
+Registrant Phone Ext: 
+Registrant Fax: +1.4025484355
+Registrant Fax Ext: 
+Registrant Email: allan.hull@bcbsne.com
+Registry Admin ID: 
+Admin Name: Allan Hull
+Admin Organization: Blue Cross and Blue Shield of Nebraska
+Admin Street: 1919 Aksarben Drive
+Admin City: Omaha
+Admin State/Province: Nebraska
+Admin Postal Code: 68180
+Admin Country: United States
+Admin Phone: +1.4029826787
+Admin Phone Ext: 
+Admin Fax: +1.4025484355
+Admin Fax Ext: 
+Admin Email: allan.hull@bcbsne.com
+Registry Tech ID: 
+Tech Name: Allan Hull
+Tech Organization: Blue Cross and Blue Shield of Nebraska
+Tech Street: 1919 Aksarben Drive
+Tech City: Omaha
+Tech State/Province: Nebraska
+Tech Postal Code: 68180
+Tech Country: United States
+Tech Phone: +1.4029826787
+Tech Phone Ext: 
+Tech Fax: +1.4025484355
+Tech Fax Ext: 
+Tech Email: allan.hull@bcbsne.com
+Name Server: NS21.DOMAINCONTROL.COM
+Name Server: NS22.DOMAINCONTROL.COM
+DNSSEC: unsigned
+URL of the ICANN WHOIS Data Problem Reporting System: http://wdprs.internic.net/
+Last update of WHOIS database: 2014-10-27T09:00:00Z
+
+The data contained in GoDaddy.com, LLC's WhoIs database,
+while believed by the company to be reliable, is provided "as is"
+with no guarantee or warranties regarding its accuracy.  This
+information is provided for the sole purpose of assisting you
+in obtaining information about domain name registration records.
+Any use of this data for any other purpose is expressly forbidden without the prior written
+permission of GoDaddy.com, LLC.  By submitting an inquiry,
+you agree to these terms of usage and limitations of warranty.  In particular,
+you agree not to use this data to allow, enable, or otherwise make possible,
+dissemination or collection of this data, in part or in its entirety, for any
+purpose, such as the transmission of unsolicited advertising and
+and solicitations of any kind, including spam.  You further agree
+not to use this data to enable high volume, automated or robotic electronic
+processes designed to collect or compile this data for any purpose,
+including mining this data for your own personal or commercial purposes. 
+
+Please note: the registrant of the domain name is specified
+in the "registrant" section.  In most cases, GoDaddy.com, LLC 
+is not the registrant of domain names listed in this database.
