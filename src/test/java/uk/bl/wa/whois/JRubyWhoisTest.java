@@ -29,8 +29,7 @@ public class JRubyWhoisTest {
     public void testMassiveLookup() throws IOException, ParseException {
         String domain = "google.fr";
         WhoisResult r = w.lookup(domain, 60);
-        assertEquals(new SimpleDateFormat("yyyy-MM-dd").parse("2000-07-27"),
-                r.getCreatedOn());
+        assertEquals(new SimpleDateFormat("yyyy-MM-dd").parse("2000-07-27"), r.getCreatedOn());
     }
 
     @Test
@@ -41,6 +40,16 @@ public class JRubyWhoisTest {
     @Test
     public void testHasParser() {
         assertTrue(w.hasParserForWhoisHost("whois.verisign-grs.com"));
+    }
+
+    @Test
+    public void testHasNoParserWhenNull() {
+        assertFalse(w.hasParserForWhoisHost(null));
+    }
+
+    @Test
+    public void testHasNoParserWhenEmpty() {
+        assertFalse(w.hasParserForWhoisHost(""));
     }
 
     @Test(expected = ServerNotFoundException.class)
