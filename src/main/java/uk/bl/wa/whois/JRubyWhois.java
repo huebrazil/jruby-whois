@@ -1,56 +1,91 @@
-/**
- * 
- */
 package uk.bl.wa.whois;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.util.ArrayList;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintStream;
 
+import org.jruby.embed.EvalFailedException;
+import org.jruby.embed.LocalContextScope;
 import org.jruby.embed.ScriptingContainer;
 
-/**
- * @author Andrew Jackson <Andrew.Jackson@bl.uk>
- *
- */
+import uk.bl.wa.whois.exceptions.ServerNotFoundException;
+import uk.bl.wa.whois.exceptions.WebInterfaceErrorException;
+import uk.bl.wa.whois.record.WhoisResult;
+
 public class JRubyWhois {
 
-	ScriptingContainer container = new ScriptingContainer();
-	
-	public JRubyWhois() {
-		/*
-		ArrayList<String> paths = new ArrayList<String>();
-		String path = JRubyWhois.class.getProtectionDomain().getCodeSource().getLocation().getPath();
-		String decodedPath;
-		try {
-			decodedPath = URLDecoder.decode(path, "UTF-8");
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-			return;
-		}
-		paths.add(decodedPath+"!/gems/whois-3.4.2");
-		container.setLoadPaths( paths );
-		*/
-	}
-    
-	/**
-	 * 
-	 * Uses the Ruby Whois gem to perform a whois lookup.
-	 * 
-	 * Also checks if the registrant appears to be in the UK.
-	 * 
-	 * @param domain
-	 * @return
-	 */
-	public WhoisResult lookup(String domain) {
-		
+    ScriptingContainer container = new ScriptingContainer(
+            LocalContextScope.CONCURRENT);
+
+    public JRubyWhois() {
+        this(false);
+    }
+
+    /**
+     * @param debug Set to false to disable ruby stderr/stdout
+     */
+    public JRubyWhois(boolean debug) {
+        if (!debug) {
+            PrintStream printStream = new PrintStream(new OutputStream() {
+                @Override
+                public void write(int b) throws IOException {
+                }
+            });
+            container.setError(printStream);
+            container.setOutput(printStream);
+        }
+    }
+
+    /**
+     * 
+     * Uses the Ruby Whois gem to perform a whois lookup.
+     * 
+     * @param domain
+     *            domain name to lookup
+     * @return
+     */
+    public WhoisResult lookup(String domain) {
+        return lookup(domain, 30);
+    }
+
+    /**
+     * Uses the Ruby Whois gem to perform a whois lookup
+     * 
+     * @param domain
+     *            domain name to lookup
+     * @param timeout
+     *            timeout in seconds
+     * @return
+     */
+    public WhoisResult lookup(String domain, int timeout) {
         container.put("domain", domain);
-        return (WhoisResult) container.runScriptlet(JRubyWhois.class.getResourceAsStream("jruby-whois.rb"), "jruby-whois.rb");
+        container.put("timeout_param", timeout);
+        try {
+            return (WhoisResult) container.runScriptlet(
+                    JRubyWhois.class.getResourceAsStream("jruby-whois.rb"),
+                    "jruby-whois.rb");
+        } catch (EvalFailedException e) {
+            if (e.getMessage().startsWith("(ServerNotFound)")) {
+                throw new ServerNotFoundException(e);
+            }
+            if (e.getMessage().startsWith("(WebInterfaceError")) {
+                throw new WebInterfaceErrorException(e);
+            }
+            throw e;
+        }
+    }
 
-	}
-
-	public static void main( String argv[] ) {
-		JRubyWhois w = new JRubyWhois();
-		System.out.println("Whois: "+w.lookup("bbc.co.uk").isUKRegistrant());		
-	}
+    /**
+     * Check if Ruby Whois gem has a parser for a specific registrar
+     * 
+     * @param whoisHost
+     *            whois server to check
+     * @return
+     */
+    public boolean hasParserForWhoisHost(String whoisHost) {
+        container.put("host", whoisHost);
+        return (Boolean) container.runScriptlet(
+                JRubyWhois.class.getResourceAsStream("jruby-has-parser.rb"),
+                "jruby-has-parser.rb");
+    }
 }

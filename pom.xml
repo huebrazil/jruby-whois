@@ -7,7 +7,7 @@
    <modelVersion>4.0.0</modelVersion>
    <groupId>uk.bl.wa.whois</groupId>
    <artifactId>jruby-whois</artifactId>
-   <version>3.4.2.2-SNAPSHOT</version>
+   <version>3.5.8</version>
    <licenses>
       <license>
          <name>The Apache Software License, Version 2.0</name>
@@ -105,7 +105,7 @@
       <dependency>
          <groupId>rubygems</groupId>
          <artifactId>whois</artifactId>
-         <version>3.4.2</version>
+         <version>3.5.8</version>
          <type>gem</type>
       </dependency>
       <dependency>
