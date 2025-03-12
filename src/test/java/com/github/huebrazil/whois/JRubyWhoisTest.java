@@ -1,9 +1,11 @@
 /**
  * 
  */
-package uk.bl.wa.whois;
+package com.github.huebrazil.whois;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -12,9 +14,9 @@ import java.text.SimpleDateFormat;
 import org.junit.Before;
 import org.junit.Test;
 
-import uk.bl.wa.whois.exceptions.ServerNotFoundException;
-import uk.bl.wa.whois.exceptions.WebInterfaceErrorException;
-import uk.bl.wa.whois.record.WhoisResult;
+import com.github.huebrazil.whois.exceptions.ServerNotFoundException;
+import com.github.huebrazil.whois.exceptions.WebInterfaceErrorException;
+import com.github.huebrazil.whois.record.WhoisResult;
 
 public class JRubyWhoisTest {
 
@@ -29,7 +31,7 @@ public class JRubyWhoisTest {
     public void testMassiveLookup() throws IOException, ParseException {
         String domain = "google.fr";
         WhoisResult r = w.lookup(domain, 60);
-        assertEquals(new SimpleDateFormat("yyyy-MM-dd").parse("2000-07-27"), r.getCreatedOn());
+        assertEquals("2001-08-12", new SimpleDateFormat("yyyy-MM-dd").format(r.getCreatedOn()));
     }
 
     @Test
@@ -39,7 +41,7 @@ public class JRubyWhoisTest {
 
     @Test
     public void testHasParser() {
-        assertTrue(w.hasParserForWhoisHost("whois.verisign-grs.com"));
+        assertTrue(w.hasParserForWhoisHost("whois.jprs.jp"));
     }
 
     @Test

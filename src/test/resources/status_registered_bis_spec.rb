@@ -13,12 +13,12 @@
 require 'rubygems'
 
 #require './spec_helper'
-require 'whois'
-require 'whois/record/parser/whois.godaddy.com'
-require 'uk/bl/wa/whois/convert'
+require 'whois-parser'
+require 'whois/parsers/whois.godaddy.com'
+require 'com/github/huebrazil/whois/convert'
 
 part = Whois::Record::Part.new(body: content)
-response = Whois::Record::Parser::WhoisGodaddyCom.new(part)
+response = Whois::Parsers::WhoisGodaddyCom.new(part)
 
 puts(response.technical_contacts[0])
 createJavaContact(response.technical_contacts[0])

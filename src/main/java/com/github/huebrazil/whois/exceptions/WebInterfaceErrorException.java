@@ -1,4 +1,4 @@
-package uk.bl.wa.whois.exceptions;
+package com.github.huebrazil.whois.exceptions;
 
 public class WebInterfaceErrorException extends RuntimeException {
 

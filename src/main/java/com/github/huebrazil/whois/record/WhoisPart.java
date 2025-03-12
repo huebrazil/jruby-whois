@@ -1,4 +1,4 @@
-package uk.bl.wa.whois.record;
+package com.github.huebrazil.whois.record;
 
 public class WhoisPart {
     private final String body;

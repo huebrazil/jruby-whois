@@ -1,4 +1,4 @@
-package uk.bl.wa.whois.record;
+package com.github.huebrazil.whois.record;
 
 public class WhoisNameserver {
     private final String ipv4;

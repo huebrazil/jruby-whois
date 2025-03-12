@@ -1,4 +1,4 @@
-package uk.bl.wa.whois.record;
+package com.github.huebrazil.whois.record;
 
 import java.util.Date;
 import java.util.List;
