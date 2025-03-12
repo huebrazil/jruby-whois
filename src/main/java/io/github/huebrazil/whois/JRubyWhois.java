@@ -1,4 +1,4 @@
-package com.github.huebrazil.whois;
+package io.github.huebrazil.whois;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -8,24 +8,37 @@ import org.jruby.embed.EvalFailedException;
 import org.jruby.embed.LocalContextScope;
 import org.jruby.embed.ScriptingContainer;
 
-import com.github.huebrazil.whois.exceptions.ServerNotFoundException;
-import com.github.huebrazil.whois.exceptions.WebInterfaceErrorException;
-import com.github.huebrazil.whois.record.WhoisResult;
+import io.github.huebrazil.whois.exceptions.ServerNotFoundException;
+import io.github.huebrazil.whois.exceptions.WebInterfaceErrorException;
+import io.github.huebrazil.whois.record.WhoisResult;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class JRubyWhois.
+ */
 public class JRubyWhois {
 
 	ScriptingContainer container = new ScriptingContainer(LocalContextScope.CONCURRENT);
 
+	/**
+	 * Instantiates a new j ruby whois.
+	 */
 	public JRubyWhois() {
 		this(false);
 	}
 
 	/**
+	 * Instantiates a new j ruby whois.
+	 *
 	 * @param debug Set to false to disable ruby stderr/stdout
 	 */
 	public JRubyWhois(boolean debug) {
 		if (!debug) {
-			PrintStream printStream = new PrintStream(new OutputStream() {
+			PrintStream printStream = new PrintStream(
+/**
+ * The Class .
+ */
+new OutputStream() {
 				@Override
 				public void write(int b) throws IOException {
 				}
@@ -36,22 +49,21 @@ public class JRubyWhois {
 	}
 
 	/**
-	 * 
 	 * Uses the Ruby Whois gem to perform a whois lookup.
-	 * 
+	 *
 	 * @param domain domain name to lookup
-	 * @return
+	 * @return the whois result
 	 */
 	public WhoisResult lookup(String domain) {
 		return lookup(domain, 30);
 	}
 
 	/**
-	 * Uses the Ruby Whois gem to perform a whois lookup
-	 * 
+	 * Uses the Ruby Whois gem to perform a whois lookup.
+	 *
 	 * @param domain  domain name to lookup
 	 * @param timeout timeout in seconds
-	 * @return
+	 * @return the whois result
 	 */
 	public WhoisResult lookup(String domain, int timeout) {
 		container.put("domain", domain);
@@ -71,11 +83,11 @@ public class JRubyWhois {
 	}
 	
 	/**
-	 * Uses the Ruby Whois gem to perform a whois lookup
-	 * 
-	 * @param domain  domain name to lookup
-	 * @param timeout timeout in seconds
-	 * @return
+	 * Uses the Ruby Whois gem to perform a whois lookup.
+	 *
+	 * @param server the server
+	 * @param rawData the raw data
+	 * @return the whois result
 	 */
 	public WhoisResult parseResult(String server, String rawData) {
 		container.put("server", server);
@@ -95,10 +107,10 @@ public class JRubyWhois {
 	}
 
 	/**
-	 * Check if Ruby Whois gem has a parser for a specific registrar
-	 * 
+	 * Check if Ruby Whois gem has a parser for a specific registrar.
+	 *
 	 * @param whoisHost whois server to check
-	 * @return
+	 * @return true, if successful
 	 */
 	public boolean hasParserForWhoisHost(String whoisHost) {
 		container.put("host", whoisHost);

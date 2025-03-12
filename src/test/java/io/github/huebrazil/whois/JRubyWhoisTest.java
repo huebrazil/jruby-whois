@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.github.huebrazil.whois;
+package io.github.huebrazil.whois;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -14,9 +14,10 @@ import java.text.SimpleDateFormat;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.github.huebrazil.whois.exceptions.ServerNotFoundException;
-import com.github.huebrazil.whois.exceptions.WebInterfaceErrorException;
-import com.github.huebrazil.whois.record.WhoisResult;
+import io.github.huebrazil.whois.JRubyWhois;
+import io.github.huebrazil.whois.exceptions.ServerNotFoundException;
+import io.github.huebrazil.whois.exceptions.WebInterfaceErrorException;
+import io.github.huebrazil.whois.record.WhoisResult;
 
 public class JRubyWhoisTest {
 

@@ -2,11 +2,11 @@ require 'java'
 require 'rubygems'
 require 'whois-parser'
 
-java_import 'com.github.huebrazil.whois.record.WhoisResult'
-java_import 'com.github.huebrazil.whois.record.WhoisRegistrar'
-java_import 'com.github.huebrazil.whois.record.WhoisContact'
-java_import 'com.github.huebrazil.whois.record.WhoisNameserver'
-java_import 'com.github.huebrazil.whois.record.WhoisPart'
+java_import 'io.github.huebrazil.whois.record.WhoisResult'
+java_import 'io.github.huebrazil.whois.record.WhoisRegistrar'
+java_import 'io.github.huebrazil.whois.record.WhoisContact'
+java_import 'io.github.huebrazil.whois.record.WhoisNameserver'
+java_import 'io.github.huebrazil.whois.record.WhoisPart'
 
 def convertResponseToJava(r)
   p = r.parser

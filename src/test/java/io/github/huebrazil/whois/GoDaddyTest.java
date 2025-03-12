@@ -1,4 +1,4 @@
-package com.github.huebrazil.whois;
+package io.github.huebrazil.whois;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -13,8 +13,9 @@ import org.jruby.embed.ScriptingContainer;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.github.huebrazil.whois.record.WhoisContact;
-import com.github.huebrazil.whois.record.WhoisResult;
+import io.github.huebrazil.whois.JRubyWhois;
+import io.github.huebrazil.whois.record.WhoisContact;
+import io.github.huebrazil.whois.record.WhoisResult;
 
 public class GoDaddyTest {
 

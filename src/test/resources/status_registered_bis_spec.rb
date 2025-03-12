@@ -15,7 +15,7 @@ require 'rubygems'
 #require './spec_helper'
 require 'whois-parser'
 require 'whois/parsers/whois.godaddy.com'
-require 'com/github/huebrazil/whois/convert'
+require 'io/github/huebrazil/whois/convert'
 
 part = Whois::Record::Part.new(body: content)
 response = Whois::Parsers::WhoisGodaddyCom.new(part)
