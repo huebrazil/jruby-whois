@@ -1,0 +1,32 @@
+[ JPRS database provides information on network administration. Its use is    ]
+[ restricted to network administration purposes. For further information,     ]
+[ use 'whois -h whois.jprs.jp help'. To suppress Japanese output, add'/e'     ]
+[ at the end of command, e.g. 'whois -h whois.jprs.jp xxx/e'.                 ]
+Domain Information:
+[Domain Name]                   MURAMASA.JP
+
+[Registrant]                    yugengaisha atlas
+
+[Name Server]                   ns1.xserver.jp
+[Name Server]                   ns2.xserver.jp
+[Name Server]                   ns3.xserver.jp
+[Name Server]                   ns4.xserver.jp
+[Name Server]                   ns5.xserver.jp
+[Signing Key]                   
+
+[Created on]                    2012/01/25
+[Expires on]                    2026/01/31
+[Status]                        Active
+[Last Updated]                  2025/02/01 01:05:03 (JST)
+
+Contact Information:
+[Name]                          GMO Pepabo, Inc.
+[Email]                         admin@muumuu-domain.com
+[Web Page]                      http://muumuu-domain.com/?mode=whois-policy
+[Postal code]                   810-0001
+[Postal Address]                Tenjin Prime 8F, 2-7-21, Tenjin
+                                Chuo-ku, Fukuoka-City, Fukuoka
+                                8100001,Japan
+[Phone]                         092-713-7999
+[Fax]                           092-713-7944
+

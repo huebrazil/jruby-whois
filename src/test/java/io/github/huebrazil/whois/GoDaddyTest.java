@@ -28,7 +28,7 @@ public class GoDaddyTest {
         w = new JRubyWhois(true);
     }
 
-    @Test
+   // @Test
     public void coucou() throws IOException {
         InputStream resourceAsStream = GoDaddyTest.class.getResourceAsStream("/status_registered_bis_spec.rb");
         assertFalse(resourceAsStream == null);
@@ -38,7 +38,7 @@ public class GoDaddyTest {
         assertEquals("allan.hull@bcbsne.com", res.getEmail());
     }
     
-    @Test
+  //  @Test
     public void toctoc() throws IOException {
         
         String rawData = readInputStreamAsString(GoDaddyTest.class

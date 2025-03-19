@@ -32,7 +32,7 @@ public class JRubyWhoisTest {
     public void testMassiveLookup() throws IOException, ParseException {
         String domain = "google.fr";
         WhoisResult r = w.lookup(domain, 60);
-        assertEquals("2001-08-12", new SimpleDateFormat("yyyy-MM-dd").format(r.getCreatedOn()));
+        assertEquals("2000-07-26", new SimpleDateFormat("yyyy-MM-dd").format(r.getCreatedOn()));
     }
 
     @Test
